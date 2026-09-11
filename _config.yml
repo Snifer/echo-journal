@@ -1,9 +1,9 @@
 title: "Project Echo - Diario"
-description: "Bitá·ªcora de aventuras de Project Echo"
-baseurl: ""  # Cambia a "/nombre-del-repo" si usas user.github.io/nombre-repo
-url: "https://tu-usuario.github.io"
+description: "Bitácora de campo de Project Echo"
+baseurl: "/echo-journal"  # Cambia a "/nombre-del-repo" si usas user.github.io/nombre-repo
+url: "https://snifer.github.io"
 
-# Configuraci├│n de Jekyll
+# Configuración de Jekyll
 markdown: kramdown
 highlighter: rouge
 permalink: /diario/:year/:month/:day/:title/
@@ -11,7 +11,7 @@ permalink: /diario/:year/:month/:day/:title/
 # No mostrar posts con fecha futura
 future: false
 
-# Configuraci├│n de colecciones
+# Configuración de colecciones
 collections:
   posts:
     output: true
@@ -24,7 +24,7 @@ defaults:
     values:
       layout: post
 
-# Configuraci├│n de build
+# Configuración de build
 include:
   - _posts
 
