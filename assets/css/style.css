@@ -1,11 +1,8 @@
----
----
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Permanent+Marker&display=swap');
 
 :root {
   --void: #121212;
   --panel: #050505;
-  --panel-soft: #111111;
   --line: #272727;
   --text: #d7d7d7;
   --muted: #888;
@@ -19,6 +16,7 @@
   --heat-3: #dd9415;
   --heat-4: #ffc12f;
 }
+
 * { box-sizing: border-box; }
 html { background: var(--void); }
 body { margin: 0; min-height: 100vh; background: #222; color: var(--text); font: 16px/1.45 'IBM Plex Mono', monospace; }
@@ -55,7 +53,8 @@ h1 { margin: 0; color: var(--cyan); font: 2.1rem 'Permanent Marker', cursive; }
 .legend-label { color: var(--text); }
 .legend-item { display: inline-flex; align-items: center; gap: 5px; }
 .legend-item i { width: 12px; height: 12px; border: 1px solid #555; }
-.legend-entity { color: var(--entity); }.legend-destroyed { color: var(--fire); }
+.legend-entity { color: var(--entity); }
+.legend-destroyed { color: var(--fire); }
 
 .agent-panel { position: sticky; top: 16px; overflow: hidden; border: 1px solid #2d2d2d; border-radius: 10px; background: #080808; }
 .agent-panel-head { padding: 20px 21px 14px; border-bottom: 1px solid var(--line); }
@@ -65,25 +64,70 @@ h1 { margin: 0; color: var(--cyan); font: 2.1rem 'Permanent Marker', cursive; }
 .clock-widget svg { display: block; width: 100%; height: auto; }
 .clock-ring { fill: #0b0b0b; stroke: #303030; stroke-width: 2; }
 .clock-segment { stroke: #080808; stroke-width: 2; transition: fill .2s ease; }
-.clock-segment.entity-off { fill: #35171a; }.clock-segment.entity-on { fill: var(--entity); }
-.clock-segment.agency-off { fill: #103721; }.clock-segment.agency-on { fill: var(--agency); }
+.clock-segment.entity-off { fill: #35171a; }
+.clock-segment.entity-on { fill: var(--entity); }
+.clock-segment.agency-off { fill: #103721; }
+.clock-segment.agency-on { fill: var(--agency); }
 .clock-core { fill: #0a0a0a; stroke: #4a4a4a; stroke-width: 1; }
 .clock-center { fill: #d8d8d8; font-family: 'IBM Plex Mono', monospace; font-size: 14px; text-anchor: middle; letter-spacing: 1px; }
 .clock-sub { fill: #777; font-size: 11px; }
 .agent-counters { margin: 0; padding: 0 21px; }
 .counter { display: grid; grid-template-columns: 1fr auto; align-items: baseline; padding: 11px 0; border-bottom: 1px solid #222; }
-.counter dt { font-size: .88rem; letter-spacing: .05em; }.counter dd { margin: 0; font-size: 1rem; }
-.counter-entity dt, .counter-entity dd { color: var(--entity); }.counter-agency dt, .counter-agency dd { color: var(--agency); }.counter-corruption dt, .counter-corruption dd { color: var(--fire); }
+.counter dt { font-size: .88rem; letter-spacing: .05em; }
+.counter dd { margin: 0; font-size: 1rem; }
+.counter-entity dt, .counter-entity dd { color: var(--entity); }
+.counter-agency dt, .counter-agency dd { color: var(--agency); }
+.counter-corruption dt, .counter-corruption dd { color: var(--fire); }
 .agent-status { margin: 20px; padding: 14px; border: 1px solid var(--agency); color: var(--agency); letter-spacing: .12em; font-size: .82rem; }
 .status-dot { display: inline-block; width: 9px; height: 9px; margin-right: 9px; border-radius: 50%; background: var(--agency); }
-.inventory-panel { padding: 0 21px 21px; }.inventory-panel h3 { margin: 0 0 11px; color: #bbb; font-size: .86rem; text-transform: uppercase; letter-spacing: .08em; }
-.inventory-list { list-style: none; padding: 0; margin: 0; }.inventory-item { display: flex; gap: 10px; padding: 7px 0; color: #767676; font-size: .84rem; }.inventory-item.is-owned { color: var(--text); }.read-only-check { color: #666; }.inventory-item.is-owned .read-only-check { color: var(--agency); }
+.inventory-panel { padding: 0 21px 21px; }
+.inventory-panel h3 { margin: 0 0 11px; color: #bbb; font-size: .86rem; text-transform: uppercase; letter-spacing: .08em; }
+.inventory-list { list-style: none; padding: 0; margin: 0; }
+.inventory-item { display: flex; gap: 10px; padding: 7px 0; color: #767676; font-size: .84rem; }
+.inventory-item.is-owned { color: var(--text); }
+.read-only-check { color: #666; }
+.inventory-item.is-owned .read-only-check { color: var(--agency); }
 
 .day-details { position: relative; margin-top: 25px; padding: 20px; border: 1px solid #555; background: #f7f0e4; color: #282828; }
-.day-details h2 { margin: 0 36px 13px 0; color: #1c4e87; }.close-details { position: absolute; top: 10px; right: 10px; border: 0; background: #222; color: white; width: 28px; height: 28px; cursor: pointer; font-size: 1.2rem; }.detail-status.present { color: #6b3e8d; }.detail-status.destroyed { color: #b34600; }.day-records a { color: #184f92; }.day-records span { display: block; color: #666; font-size: .85rem; }.no-records { color: #555; }
-.posts-list-section { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }.posts-list-section h2 { color: var(--cyan); font-size: 1.15rem; }.posts-archive { list-style: none; padding: 0; }.posts-archive li { display: flex; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid #252525; padding: 9px 0; }.posts-archive time { color: #777; }.posts-archive a { color: var(--cyan); text-decoration: none; }.posts-archive a:hover { text-decoration: underline; }
-.post { max-width: 850px; margin: auto; padding: 30px; background: #f7f0e4; color: #292929; }.post-title { color: #184f92; }.post-date { color: #666; }.post-content blockquote { border-left: 4px solid #184f92; padding-left: 14px; }.entity-record { margin: 18px 0; padding: 15px; border: 2px dashed #666; background: #fff0b6; }.entity-record dl div { display: grid; grid-template-columns: 145px 1fr; gap: 10px; }.entity-record dd { margin: 0; }.status-present { color: #6b3e8d; }.status-destroyed { color: #b34600; }.tag { display: inline-block; margin: 3px; padding: 2px 8px; background: #ddd0a2; }.back-link { color: #184f92; }
+.day-details h2 { margin: 0 36px 13px 0; color: #1c4e87; }
+.close-details { position: absolute; top: 10px; right: 10px; border: 0; background: #222; color: white; width: 28px; height: 28px; cursor: pointer; font-size: 1.2rem; }
+.detail-status.present { color: #6b3e8d; }
+.detail-status.destroyed { color: #b34600; }
+.day-records a { color: #184f92; }
+.day-records span { display: block; color: #666; font-size: .85rem; }
+.no-records { color: #555; }
+.posts-list-section { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+.posts-list-section h2 { color: var(--cyan); font-size: 1.15rem; }
+.posts-archive { list-style: none; padding: 0; }
+.posts-archive li { display: flex; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid #252525; padding: 9px 0; }
+.posts-archive time { color: #777; }
+.posts-archive a { color: var(--cyan); text-decoration: none; }
+.posts-archive a:hover { text-decoration: underline; }
+.post { max-width: 850px; margin: auto; padding: 30px; background: #f7f0e4; color: #292929; }
+.post-title { color: #184f92; }
+.post-date { color: #666; }
+.post-content blockquote { border-left: 4px solid #184f92; padding-left: 14px; }
+.entity-record { margin: 18px 0; padding: 15px; border: 2px dashed #666; background: #fff0b6; }
+.entity-record dl div { display: grid; grid-template-columns: 145px 1fr; gap: 10px; }
+.entity-record dd { margin: 0; }
+.status-present { color: #6b3e8d; }
+.status-destroyed { color: #b34600; }
+.tag { display: inline-block; margin: 3px; padding: 2px 8px; background: #ddd0a2; }
+.back-link { color: #184f92; }
 
-@media (max-width: 1180px) { .dashboard-layout { grid-template-columns: 1fr 300px; }.annual-calendar { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 860px) { .dashboard-layout { grid-template-columns: 1fr; }.agent-panel { position: static; }.annual-calendar { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .site-header, .site-main, .site-footer { width: min(100% - 16px, 1500px); }.site-header { margin-top: 8px; }.site-main { padding: 20px 14px; }.annual-calendar { grid-template-columns: 1fr; }.clock-widget { padding-inline: 74px; } }
+@media (max-width: 1180px) {
+  .dashboard-layout { grid-template-columns: 1fr 300px; }
+  .annual-calendar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .dashboard-layout { grid-template-columns: 1fr; }
+  .agent-panel { position: static; }
+  .annual-calendar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .site-header, .site-main, .site-footer { width: min(100% - 16px, 1500px); }
+  .site-header { margin-top: 8px; }
+  .site-main { padding: 20px 14px; }
+  .annual-calendar { grid-template-columns: 1fr; }
+  .clock-widget { padding-inline: 74px; }
+}
