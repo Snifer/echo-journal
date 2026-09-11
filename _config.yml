@@ -1,22 +1,17 @@
-title: "Project Echo - Diario"
-description: "Bitácora de campo de Project Echo"
-baseurl: "/echo-journal"  # Cambia a "/nombre-del-repo" si usas user.github.io/nombre-repo
+title: "Proyecto ECCO"
+description: "Un juego de viajes en el tiempo en Solitario"
+baseurl: "/echo-journal"
 url: "https://snifer.github.io"
 
-# Configuración de Jekyll
 markdown: kramdown
 highlighter: rouge
 permalink: /diario/:year/:month/:day/:title/
-
-# No mostrar posts con fecha futura
 future: false
 
-# Configuración de colecciones
 collections:
   posts:
     output: true
 
-# Valores por defecto para posts
 defaults:
   - scope:
       path: ""
@@ -24,12 +19,7 @@ defaults:
     values:
       layout: post
 
-# Configuración de build
-include:
-  - _posts
-
 exclude:
-  - README.md
-  - .gitignore
   - Gemfile
   - Gemfile.lock
+  - README.md
