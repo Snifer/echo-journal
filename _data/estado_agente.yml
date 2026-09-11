@@ -1,0 +1,34 @@
+estado: "OPERATIVO"
+
+reloj:
+  entidad:
+    actual: 0
+    maximo: 6
+  agencia:
+    actual: 0
+    maximo: 6
+
+corrupcion: 0
+
+inventario:
+  - id: reloj
+    nombre: "Reloj"
+    activo: false
+  - id: skimmer
+    nombre: "Skimmer"
+    activo: false
+  - id: maletin
+    nombre: "Maletín"
+    activo: false
+  - id: mezclador
+    nombre: "Mezclador de Estaciones"
+    activo: false
+  - id: despliegue
+    nombre: "Despliegue Temporal"
+    activo: false
+  - id: segunda_moneda
+    nombre: "Segunda Moneda"
+    activo: false
+  - id: campana
+    nombre: "La Campana"
+    activo: false
