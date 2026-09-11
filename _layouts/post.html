@@ -1,1 +1,47 @@
-entity metadata display
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <p class="post-kicker">Registro del diario</p>
+    <h2 class="post-title">{{ page.title }}</h2>
+    <time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">
+      {{ page.date | date: "%d/%m/%Y" }}
+    </time>
+  </header>
+
+  {% if page.entidad or page.entidad_presente or page.fecha_destruida %}
+  <aside class="entity-record" aria-label="Estado de entidad">
+    <h3>Estado de entidad</h3>
+    <dl>
+      {% if page.entidad %}
+      <div><dt>Entidad</dt><dd>{{ page.entidad }}</dd></div>
+      {% endif %}
+      {% if page.entidad_presente %}
+      <div><dt>Presente hoy</dt><dd><span class="status-present">👾 Sí</span></dd></div>
+      {% endif %}
+      {% if page.fecha_destruida %}
+      <div><dt>Fecha destruida</dt><dd><span class="status-destroyed">🔥 {{ page.fecha_destruida | date: "%d/%m/%Y" }}</span></dd></div>
+      {% endif %}
+    </dl>
+  </aside>
+  {% endif %}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+  <div class="post-tags">
+    <span class="tags-label">Etiquetas:</span>
+    {% for tag in page.tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <nav class="post-navigation">
+    <a href="{{ '/' | relative_url }}" class="back-link">← Volver al calendario anual</a>
+  </nav>
+</article>

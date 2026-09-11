@@ -1,1 +1,147 @@
-annual calendar styles
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&family=Permanent+Marker&display=swap');
+
+:root {
+  --page: #1c1c1c;
+  --surface: #454545;
+  --surface-deep: #343434;
+  --surface-soft: #505050;
+  --ink: #e1dfdf;
+  --muted: #bdb9bf;
+  --turquoise: #24c0c7;
+  --violet: #48425d;
+  --grid-line: #4a4a4a;
+  --heat-0: #383838;
+  --heat-1: #6a5926;
+  --heat-2: #a57a1e;
+  --heat-3: #dc9515;
+  --heat-4: #f5b20f;
+  --entity: #b28ad8;
+  --destroyed: #ff8b28;
+  --paper: #f7f1e7;
+  --paper-ink: #252525;
+  --marker: 'Permanent Marker', cursive;
+  --hand: 'Patrick Hand', cursive;
+  --note: 'Caveat', cursive;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--page); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% -20%, #4b4b4b 0, var(--page) 48%);
+  color: var(--ink);
+  font-family: var(--hand);
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.site-header, .site-main, .site-footer { width: min(1320px, calc(100% - 32px)); margin-inline: auto; }
+.site-header {
+  padding: 32px 22px 22px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid #616161;
+  border-radius: 14px 14px 0 0;
+  margin-top: 24px;
+}
+.site-title { margin: 0; font-family: var(--marker); font-size: clamp(2rem, 5vw, 3.4rem); color: var(--turquoise); transform: rotate(-1deg); }
+.site-title a { color: inherit; text-decoration: none; }
+.site-description { margin: 8px 0 0; font-family: var(--note); font-size: 1.45rem; color: var(--muted); }
+.site-main { background: var(--surface); padding: 12px 14px 32px; }
+.site-footer { background: var(--surface); border-radius: 0 0 14px 14px; padding: 18px; margin-bottom: 24px; text-align: center; color: var(--muted); font-family: var(--note); }
+
+h1 { margin: 0 0 8px; text-align: center; font-family: var(--marker); font-size: clamp(2rem, 4vw, 3.2rem); color: var(--turquoise); }
+h2, h3 { font-family: var(--marker); }
+.journal-intro { margin: 0 auto 20px; max-width: 600px; text-align: center; color: var(--muted); font-family: var(--note); font-size: 1.35rem; }
+
+.journal-controls { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 12px 0 22px; }
+.journal-controls label { color: var(--muted); font-family: var(--note); font-size: 1.4rem; }
+#year-select { appearance: none; min-width: 112px; border: 1px solid #777; border-radius: 7px; padding: 7px 32px 7px 12px; background: var(--surface-deep); color: var(--ink); font: 1.15rem var(--hand); cursor: pointer; }
+
+.annual-calendar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.month-card { min-width: 0; padding: 13px 12px 15px; border: 1px solid #606060; border-radius: 11px; background: var(--surface-deep); box-shadow: 0 3px 0 rgba(0, 0, 0, .17); }
+.month-card h2 { margin: 0 0 10px; color: var(--turquoise); text-align: center; font-size: 1.55rem; }
+.month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; }
+.month-weekday { padding: 3px 0; background: var(--violet); color: #ddd9df; text-align: center; font-family: var(--hand); font-size: clamp(.7rem, 1.2vw, 1rem); font-weight: 700; }
+.heat-day { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 45px; border: 0; padding: 3px 1px; background: var(--heat-0); color: #dad7d7; font: 1.18rem var(--hand); line-height: 1; }
+button.heat-day { cursor: default; }
+button.heat-day.is-active { cursor: pointer; }
+button.heat-day.is-active:hover, button.heat-day.is-active:focus-visible { outline: 2px solid var(--turquoise); outline-offset: 1px; z-index: 1; filter: brightness(1.18); }
+.heat-day-empty { opacity: .35; }
+.heat-level-0 { background: var(--heat-0); }
+.heat-level-1 { background: var(--heat-1); }
+.heat-level-2 { background: var(--heat-2); }
+.heat-level-3 { background: var(--heat-3); }
+.heat-level-4 { background: var(--heat-4); color: #2c2110; }
+.day-number { padding-top: 2px; }
+.day-icons { display: flex; gap: 1px; min-height: 16px; margin-top: 1px; font-size: .74rem; line-height: 1; }
+.entity-icon { filter: drop-shadow(0 1px 1px #000); }
+.destroyed-icon { filter: drop-shadow(0 1px 1px #000); }
+
+.heatmap-legend { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 14px; margin: 20px 0 0; color: var(--muted); font-family: var(--hand); font-size: 1rem; }
+.legend-label { color: var(--ink); font-family: var(--marker); }
+.legend-item { display: inline-flex; align-items: center; gap: 5px; }
+.legend-item i { width: 15px; height: 15px; border: 1px solid rgba(255,255,255,.2); border-radius: 3px; }
+.legend-entity { color: var(--entity); }
+.legend-destroyed { color: var(--destroyed); }
+
+.day-details { position: relative; margin: 26px auto 0; max-width: 850px; padding: 22px; background: var(--paper); color: var(--paper-ink); border: 3px solid #2b2b2b; border-radius: 6px; box-shadow: 5px 5px 0 rgba(0,0,0,.3); }
+.day-details::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .45; background: repeating-linear-gradient(transparent 0 30px, #b5cdf3 31px); }
+.day-details > * { position: relative; }
+.day-details h2 { margin: 0 35px 12px 0; color: #174b86; font-size: 1.65rem; }
+.close-details { position: absolute; z-index: 1; top: 10px; right: 12px; width: 30px; height: 30px; border: 0; border-radius: 50%; background: #353535; color: white; font: 1.5rem/1 var(--hand); cursor: pointer; }
+.detail-status { margin: 9px 0; font-family: var(--hand); }
+.detail-status.present { color: #69408d; }
+.detail-status.destroyed { color: #b34700; }
+.day-records { margin: 14px 0 0; padding-left: 22px; }
+.day-records li { margin: 7px 0; }
+.day-records a { color: #154d94; font-family: var(--marker); text-decoration-thickness: 2px; }
+.day-records span { display: block; color: #5d5d5d; font-family: var(--note); font-size: 1.25rem; }
+.no-records { margin: 10px 0 0; font-family: var(--note); font-size: 1.35rem; }
+
+.posts-list-section { margin: 30px 0 0; padding: 22px; border: 1px solid #626262; border-radius: 11px; background: var(--surface-deep); }
+.posts-list-section h2 { margin-top: 0; color: var(--turquoise); text-align: center; }
+.posts-archive { list-style: none; margin: 0; padding: 0; }
+.posts-archive li { display: flex; flex-wrap: wrap; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #737373; }
+.posts-archive li:last-child { border-bottom: 0; }
+.posts-archive time { color: var(--muted); }
+.posts-archive a { color: var(--turquoise); text-decoration: none; }
+.posts-archive a:hover { text-decoration: underline; }
+
+.post { max-width: 850px; margin: 0 auto; padding: clamp(22px, 4vw, 42px); background: var(--paper); color: var(--paper-ink); border: 3px solid #272727; border-radius: 8px; box-shadow: 6px 6px 0 rgba(0,0,0,.3); background-image: repeating-linear-gradient(transparent 0 31px, #b5cdf3 32px); }
+.post-header { padding-bottom: 14px; border-bottom: 3px solid #282828; }
+.post-kicker { margin: 0; color: #8e3c37; font-family: var(--note); font-size: 1.3rem; }
+.post-title { margin: 0; color: #174b86; font-size: clamp(1.7rem, 4vw, 2.6rem); transform: rotate(-.7deg); }
+.post-date { color: #5f5f5f; font-family: var(--note); font-size: 1.4rem; }
+.entity-record { margin: 22px 0; padding: 15px 18px; border: 2px dashed #5f5f5f; background: rgba(255, 244, 191, .7); }
+.entity-record h3 { margin: 0 0 9px; color: #174b86; }
+.entity-record dl { margin: 0; }
+.entity-record dl div { display: grid; grid-template-columns: 145px 1fr; gap: 10px; padding: 3px 0; }
+.entity-record dt { font-family: var(--marker); }
+.entity-record dd { margin: 0; }
+.status-present { color: #69408d; font-weight: 700; }
+.status-destroyed { color: #b34700; font-weight: 700; }
+.post-content { font-size: 1.05rem; }
+.post-content h1, .post-content h2, .post-content h3 { color: #174b86; }
+.post-content h1, .post-content h2 { font-family: var(--marker); }
+.post-content p, .post-content li { font-family: var(--hand); }
+.post-content blockquote { margin: 18px 0; padding: 10px 16px; border-left: 5px solid #174b86; background: rgba(255, 228, 91, .45); font-family: var(--note); font-size: 1.35rem; }
+.post-tags { margin-top: 24px; padding-top: 12px; border-top: 2px dashed #777; }
+.tags-label { font-family: var(--marker); }
+.tag { display: inline-block; margin: 3px; padding: 1px 8px; border: 1px solid #444; border-radius: 3px; background: #e1d6ad; font-family: var(--note); font-size: 1.15rem; }
+.post-navigation { margin-top: 24px; padding-top: 12px; border-top: 2px dashed #777; }
+.back-link { color: #174b86; font-family: var(--marker); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media (max-width: 980px) { .annual-calendar { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) {
+  .site-header, .site-main, .site-footer { width: min(100% - 16px, 1320px); }
+  .site-header { margin-top: 8px; }
+  .site-main { padding: 10px 7px 22px; }
+  .annual-calendar { grid-template-columns: 1fr; gap: 14px; }
+  .month-card { padding: 12px 9px; }
+  .heat-day { min-height: 42px; }
+  .month-weekday { font-size: .85rem; }
+  .entity-record dl div { grid-template-columns: 1fr; gap: 0; margin-bottom: 6px; }
+}
