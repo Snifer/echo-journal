@@ -2,10 +2,10 @@ estado: "OPERATIVO"
 
 reloj:
   entidad:
-    actual: 0
+    actual: 3
     maximo: 6
   agencia:
-    actual: 0
+    actual: 2
     maximo: 6
 
 corrupcion: 0
@@ -13,7 +13,7 @@ corrupcion: 0
 inventario:
   - id: reloj
     nombre: "Reloj"
-    activo: false
+    activo: true
   - id: skimmer
     nombre: "Skimmer"
     activo: false
