@@ -1,5 +1,5 @@
 ---
-title: "Sesi├│n 02 â€" La red olvidada"
+title: "Sesión 2 La red olvidada"
 date: 2025-09-03 21:30:00 -04
 tags: [sesion, capitulo-2, exploracion]
 ---
