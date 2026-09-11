@@ -1,5 +1,5 @@
 ---
-title: "Sesion 01 " El despertar del eco"
+title: "Sesion 01  El despertar del eco"
 date: 2025-09-01 20:00:00 -04
 tags: [sesion, capitulo-1, inicio]
 ---
