@@ -1,8 +1,8 @@
 # Project Echo - Diario Digital
 
-Un sitio est├Ītico con **Jekyll + GitHub Pages** para publicar tu diario de juego de Project Echo en formato calendario, con apariencia de diario rayado a mano.
+Un sitio estático con **Jekyll + GitHub Pages** para publicar un diario de juego de Project Echo en formato calendario.
 
-## ĒĀĄĒ│Ā Estructura del repositorio
+## Estructura del repositorio
 
 ```
 tu-repo-echo/
@@ -23,13 +23,12 @@ tu-repo-echo/
 └─ README.md
 ```
 
-## ĒĀĄĒÜ¬ C├│mo desplegar en GitHub Pages
+## Cómo desplegar en GitHub Pages
 
 ### Paso 1: Crear el repositorio
 
 1. Ve a GitHub y crea un **nuevo repositorio** (ej. `project-echo-diario`).
-2. Puedes hacerlo p├║blico o privado.
-3. No lo inicialices con README (subiremos todo manualmente).
+2. Debe ser el repositorio público.
 
 ### Paso 2: Subir los archivos
 
@@ -52,9 +51,11 @@ tu-repo/
 ├─ index.md
 └─ README.md
 ```
-Puedes subirlos v├Źa:
+Puedes subirlos vía:
+
 - **GitHub web**: Upload files → arrastra las carpetas.
 - **Git CLI**:
+
   ```bash
   git init
   git add .
@@ -77,26 +78,26 @@ Espera 1-2 minutos. Tu sitio estar├Ī en:
 https://TU-USUARIO.github.io/project-echo-diario/
 ```
 
-## ĒĀĄĒōØīĖĒ▒Ź C├│mo a├▒adir nuevas entradas
+## Cómo añadir nuevas entradas
 
 Crea archivos en `_posts/` con este formato:
 
 ```markdown
 ---
-title: "Sesi├│n 03 — T├Źtulo de tu aventura"
-date: 2025-09-10 20:00:00 -04
+title: "Sesión 03 — Título de tu aventura"
+date: 2025-09-21 20:00:00 -04
 tags: [sesion, capitulo-3]
 ---
 
-# T├Źtulo de la sesi├│n
+# Título de la sesión
 
-**Fecha de juego:** 10 de septiembre de 2025  
-**Jugador:** T├║  
+**Fecha de juego:** 21 de septiembre de 2025  
+**Jugador:** Nick  
 **Sistema:** Project Echo
 
 ## Resumen
 
-Escribe aqu├Ź lo que pas├│...
+Escribe aquí lo que pasa....
 
 ## Eventos principales
 
@@ -116,15 +117,15 @@ Escribe aqu├Ź lo que pas├│...
 - La fecha en el frontmatter debe coincidir con el nombre del archivo.
 - Los tags son opcionales pero recomendados.
 
-## ĒĀĄĒÄ© Personalizar el dise├▒o
+##  Personalizar el diseño
 
-### Cambiar t├Źtulo y descripci├│n
+### Cambiar título y descripción
 
 Edita `_config.yml`:
 
 ```yaml
-title: "Tu T├Źtulo Personalizado"
-description: "Tu descripci├│n aqu├Ź"
+title: "Tu título Personalizado"
+description: "Tu descripción aquí"
 baseurl: "/nombre-del-repo"  # Si usas user.github.io/nombre-repo
 url: "https://tu-usuario.github.io"
 ```
@@ -138,7 +139,7 @@ Edita `assets/css/style.css` y modifica las variables CSS al inicio:
   --ink-color: #1a4d8f;      /* Color de tinta principal */
   --highlight-color: #fff3cd; /* Color de marcador */
   --line-color: #a8c0ff;     /* Color de l├Źneas del papel */
-  /* ... m├Īs variables ... */
+
 }
 ```
 
@@ -146,16 +147,16 @@ Edita `assets/css/style.css` y modifica las variables CSS al inicio:
 
 El sitio usa tres fuentes de Google Fonts:
 
-- **Patrick Hand** — Cuerpo del texto (bol├Źgrafo)
-- **Permanent Marker** — T├Źtulos (marcador grueso)
-- **Caveat** — Fechas y tags (escritura r├Īpida)
+- **Patrick Hand** — Cuerpo del texto (bolígrafo)
+- **Permanent Marker** — Títulos (marcador grueso)
+- **Caveat** — Fechas y tags (escritura rápida)
 
 Si quieres cambiarlas, edita el `@import` en `style.css`.
 
-## ĒĀĄĒōōōŹ Flujo con Obsidian
+## Flujo con Obsidian
 
 1. Escribe tus sesiones en Obsidian como siempre.
-2. Aseg├║rate de que cada nota tenga:
+2. Asegúrate de que cada nota tenga:
    - `title` en el frontmatter.
    - `date` (YYYY-MM-DD).
 3. Copia el contenido a `_posts/` con el nombre correcto.
@@ -167,23 +168,25 @@ git commit -m "A├▒adir sesi├│n XX"
 git push
 ```
 
-GitHub Pages se actualizar├Ī autom├Īticamente en ~1 minuto.
+GitHub Pages se actualizará automáticamente en ~1 minuto.
 
-## ĒĀĄĒÄ» Caracter├Źsticas
+##  Características
 
-- ✅ Calendario interactivo navegable por meses.
-- ✅ Selector de a├▒o autom├Ītico.
-- ✅ D├Źas con entradas resaltados en amarillo.
-- ✅ Hover en d├Źas muestra lista de entradas.
-- ✅ Lista completa de todas las entradas.
-- ✅ Dise├▒o "rayado a mano" con fuentes handwriting.
-- ✅ Fondo de papel con l├Źneas azules y margen rojo.
-- ✅ Totalmente est├Ītico, sin backend.
-- ✅ Gratis con GitHub Pages.
+- Calendario interactivo navegable por meses.
+- Selector de año automático.
+- Días con entradas resaltados en amarillo.
+- Hover en días muestra lista de entradas.
+- Lista completa de todas las entradas.
+- Diseño "rayado a mano" con fuentes handwriting.
+- Fondo de papel con líneas azules y margen rojo.
+- Totalmente estático, sin backend.
+- Gratis con GitHub Pages.
 
-## ĒĀĄĒōäīļĖŹ Licencia
+##  Licencia
 
-Libre uso para tu diario personal de Project Echo.
+Libre uso para tu diario personal de Project Echo, este fue creado para un Hack del juego para jugarlo en comunidad.. 
+
+En desarrollo
 
 ---
 
